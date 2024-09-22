@@ -4,94 +4,158 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#defade"
+    android:padding="15dp"
     tools:context=".MainActivity">
 
-    <Button
-        android:layout_width="wrap_content"
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:id="@+id/picBtn"
-        android:text="Scan"
-        android:background="@drawable/custombutton"
-        android:textAllCaps="false"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="10dp"
-        android:textSize="21sp"
-        android:textStyle="bold"/>
+        android:orientation="horizontal"
+        android:layout_marginTop="15dp"
+        android:gravity="center_vertical">
+
+        <!-- Back Button -->
+        <ImageView
+            android:id="@+id/back_btn"
+            android:layout_width="49dp"
+            android:layout_height="41dp"
+            android:src="@drawable/circle_back_button"
+            android:contentDescription="Back"
+            android:layout_marginEnd="16dp"/>
+
+        <!-- Title TextView -->
+        <TextView
+            android:id="@+id/title_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Identify your plant"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_weight="1"
+            android:layout_marginEnd="60dp"
+            android:gravity="center"/>
+
+    </LinearLayout>
+
 
     <ImageView
-        android:layout_width="370sp"
-        android:layout_height="370sp"
+        android:layout_width="224dp"
+        android:layout_height="224dp"
         android:id="@+id/imageView"
         android:layout_centerHorizontal="true"
         android:background="@drawable/plantpicbg"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="80dp"/>
 
     <TextView
+        android:id="@+id/tv_plant_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:text="Classified as:"
-        android:textStyle="bold"
-        android:textSize="20sp"
-        android:id="@+id/classified"
-        android:textColor="@color/black"
-        android:layout_below="@id/imageView"
-        android:layout_marginTop="15dp"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:text=""
-        android:textColor="@color/teal_200"
-        android:textStyle="bold"
-        android:textSize="27sp"
-        android:id="@+id/result"
-        android:layout_below="@id/classified"
-        android:layout_marginTop="10dp"/>
-
-    <ImageView
-        android:id="@+id/info"
-        android:layout_width="wrap_content"
-        android:layout_height="30dp"
-        android:layout_marginTop="440dp"
-        android:layout_marginLeft="280dp"
-        android:src="@drawable/info"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:text="Confidences:"
-        android:textStyle="bold"
+        android:text="Plant Image"
         android:textSize="20sp"
         android:textColor="@color/black"
+        android:layout_marginTop="5dp"
+        android:layout_below="@+id/imageView"
+        android:layout_centerHorizontal="true"/>
+
+    <LinearLayout
+        android:id="@+id/classify_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_centerVertical="true"
+        android:layout_centerInParent="true"
+        android:layout_below="@id/tv_plant_image"
+        android:layout_marginTop="20dp"
+        android:padding="5dp"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/classified"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Classified as:"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:layout_weight="1"
+            android:layout_marginEnd="10dp"
+            />
+
+        <TextView
+            android:id="@+id/result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="#808080"
+            android:textSize="20sp"
+            android:layout_weight="2"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"/>
+
+        <ImageView
+            android:id="@+id/info"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/info"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/confidences_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_centerVertical="true"
+        android:layout_centerInParent="true"
+        android:layout_below="@id/classify_ll"
+        android:layout_marginTop="10dp"
+        android:padding="5dp"
+        android:visibility="gone">
+
+        <TextView
         android:id="@+id/confidencesText"
-        android:layout_below="@id/result"
-        android:layout_marginTop="10dp"/>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Confidences:"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:layout_marginEnd="10dp"
+        android:layout_weight="1"
+        />
 
     <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerInParent="true"
-        android:layout_marginBottom="30dp">
+        android:padding="5dp"
+        android:layout_marginStart="10dp"
+        android:layout_weight="1">
 
         <TextView
+            android:id="@+id/confidence"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
             android:text=""
-            android:textStyle="bold"
-            android:textSize="22sp"
-            android:textColor="#808080"
-            android:id="@+id/confidence"
-            android:layout_below="@id/confidencesText"
-            android:layout_marginLeft="70dp"
-            />
+            android:textSize="20sp"
+            android:textColor="#808080"/>
     </ScrollView>
+
+
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/identify"
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:text="Identify"
+        android:textColor="@color/white"
+        android:background="@drawable/shape_button_rounded"
+        android:foreground="?attr/selectableItemBackground"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
+        android:textSize="18sp"
+        android:layout_centerHorizontal="true"/>
 
 </RelativeLayout>

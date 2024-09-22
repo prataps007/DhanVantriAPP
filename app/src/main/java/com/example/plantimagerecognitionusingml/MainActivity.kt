@@ -5,15 +5,20 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.media.ThumbnailUtils
+import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+
 import com.example.plantimagerecognitionusingml.databinding.ActivityMainBinding
 import com.example.plantimagerecognitionusingml.ml.Model
+import com.google.api.Distribution.BucketOptions.Linear
 import com.google.firebase.auth.FirebaseAuth
 import org.tensorflow.lite.DataType
 import org.tensorflow.lite.support.image.TensorImage
@@ -28,12 +33,15 @@ class MainActivity : AppCompatActivity() {
     private var binding:ActivityMainBinding?=null
     private lateinit var auth:FirebaseAuth
 
+    lateinit var bitmap : Bitmap
+
     var result: TextView? = null
     var confidence:TextView? = null
     var imageView: ImageView? = null
-    var picture: Button? = null
+    var btn_identify: Button? = null
     var imageSize = 224
     var info:ImageView?=null
+    var imageFound : Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,27 +61,65 @@ class MainActivity : AppCompatActivity() {
         result = findViewById(R.id.result)
         confidence = findViewById(R.id.confidence)
         imageView = findViewById(R.id.imageView)
-        picture = findViewById(R.id.picBtn)
+        btn_identify = findViewById(R.id.identify)
         info = findViewById(R.id.info)
+        val classify_ll :LinearLayout = findViewById(R.id.classify_ll)
+        val confidences_ll : LinearLayout = findViewById(R.id.confidences_ll)
+
+
+
+        // upload image
+//        val btn_upload: Button = findViewById(R.id.upload)
+//        btn_upload.setOnClickListener(View.OnClickListener{
+//            val intent:Intent = Intent(Intent.ACTION_GET_CONTENT)
+//            intent.type = "image/*"
+//
+//            startActivityForResult(intent,100)
+//        })
+
+
+        // Check if an image was passed from the HomePage activity
+        val capturedImage = intent.getParcelableExtra<Bitmap>("captured_image")
+        if (capturedImage != null) {
+            bitmap = Bitmap.createScaledBitmap(capturedImage, imageSize, imageSize, false)
+            imageView?.setImageBitmap(bitmap)
+        }
+        else {
+            Toast.makeText(this, "No image received!", Toast.LENGTH_SHORT).show()
+        }
+
+
+        btn_identify?.setOnClickListener {
+            if (this::bitmap.isInitialized) {
+                classifyImage(bitmap)
+                classify_ll?.visibility = View.VISIBLE
+                confidences_ll?.visibility = View.VISIBLE
+                btn_identify?.visibility = View.GONE // Hide "Identify" button after identification
+            } else {
+                Toast.makeText(this, "Please select an image", Toast.LENGTH_SHORT).show()
+            }
+        }
 
         info?.setOnClickListener{
-            val iNext = Intent(this@MainActivity,PlantsInfo::class.java)
-            iNext.putExtra("Plant", result?.text)
+            val iNext = Intent(this@MainActivity,PlantDetailActivity::class.java)
+            iNext.putExtra("plantName", result?.text)
+            iNext.putExtra("plantImageResId", R.drawable.tulsipic) // replace with actual image
+              iNext.putExtra("plantInfo", "Plant info")
             startActivity(iNext)
         }
 
 
-        picture?.setOnClickListener(View.OnClickListener {
-            if (checkSelfPermission(Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
-                val cameraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-                startActivityForResult(cameraIntent, 1)
-            } else {
-                requestPermissions(arrayOf(Manifest.permission.CAMERA), 100)
-            }
-        })
 
         result?.setText("")
         confidence?.setText("")
+
+
+
+        val back_btn: ImageView = findViewById(R.id.back_btn)
+        back_btn.setOnClickListener {
+            finish()
+        }
+
 
     }
 
@@ -106,21 +152,16 @@ class MainActivity : AppCompatActivity() {
         val outputFeature0 = outputs.outputFeature0AsTensorBuffer
 
         val confidences = outputFeature0.floatArray
-        var maxPos = 0
-        var maxConfidence = 0f
-        for (i in confidences.indices) {
-            if (confidences[i] > maxConfidence) {
-                maxConfidence = confidences[i]
-                maxPos = i
-            }
-        }
 
-        val classes = arrayOf("Neem", "Aloevera","Tulsi","Peppermint","Dalchinni","Amla","Basil","Ashwagandha")
+        // Get the top 5 results
+        val sortedIndices = confidences.indices.sortedByDescending { confidences[it] }.take(5)
 
-        result!!.text = classes[maxPos]
+        val classes = arrayOf("Neem", "Aloevera", "Tulsi", "Peppermint", "Dalchinni", "Amla", "Basil", "Ashwagandha")
+
+        result!!.text = classes[sortedIndices[0]]
 
         var s = ""
-        for (i in classes.indices) {
+        for (i in sortedIndices) {
             s += String.format("%s: %.1f%%\n", classes[i], confidences[i] * 100)
         }
 
@@ -132,15 +173,29 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if (requestCode == 1 && resultCode == RESULT_OK) {
-            var image = data!!.extras!!["data"] as Bitmap?
+        if ((requestCode == 1 || requestCode==100) && resultCode == RESULT_OK) {
+            var image:Bitmap?
+            if(requestCode==1) {  // scan
+                 image = data!!.extras!!["data"] as Bitmap?
+            }
+            else{  // upload
+                val uri: Uri? = data?.data
+                 image = MediaStore.Images.Media.getBitmap(this.contentResolver, uri)
+            }
+
+
             val dimension = Math.min(image!!.width, image.height)
             image = ThumbnailUtils.extractThumbnail(image, dimension, dimension)
             imageView!!.setImageBitmap(image)
             image = Bitmap.createScaledBitmap(image, imageSize, imageSize, false)
-            classifyImage(image)
+
+            bitmap = image
+            imageFound=true
         }
+
+
         super.onActivityResult(requestCode, resultCode, data)
+
     }
 
 }

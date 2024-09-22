@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/hangingpage"
+    android:orientation="horizontal"
+    android:gravity="center_horizontal"
     tools:context=".UserAuthorisation">
 
     <LinearLayout
@@ -20,100 +22,165 @@
             android:layout_height="60dp"
             android:background="@drawable/singleleaf"
             android:layout_gravity="center"
-            android:layout_marginTop="230dp"
+            android:layout_marginTop="220dp"
             />
 
         <TextView
             android:id="@+id/tv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Welcome\nto"
+            android:text="Welcome\nto DhanVantri"
             android:textAlignment="center"
-            android:textStyle="bold"
-            android:textSize="22sp"
-            android:textColor="@color/black"
-
+            android:textSize="25sp"
+            android:textColor="@color/primary_text_color"
             />
 
         <TextView
-            android:id="@+id/tv1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Dhanvantri"
+            android:text="Discover new Plants everyday"
             android:textAlignment="center"
-            android:textStyle="bold"
-            android:textSize="25sp"
-            android:textColor="#005138"
-            />
+            android:textSize="16sp"
+            android:textColor="@color/secondary_text_color"/>
 
 
-        <EditText
-            android:id="@+id/mobileNumber"
+<!--        <EditText-->
+<!--            android:id="@+id/mobileNumber"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="50dp"-->
+<!--            android:layout_below="@+id/tv1"-->
+<!--            android:layout_marginTop="32dp"-->
+<!--            android:hint="Mobile Number"-->
+<!--            android:textColorHint="@color/secondary_text_color"-->
+<!--            android:inputType="number"-->
+<!--            android:background="@drawable/customedittext"-->
+<!--            android:layout_marginLeft="20dp"-->
+<!--            android:layout_marginRight="20dp"-->
+<!--            android:paddingLeft="20dp"-->
+<!--            android:paddingRight="20dp"-->
+<!--            android:textColor="@color/primary_text_color"-->
+<!--            android:maxLength="10"-->
+<!--            android:autofillHints="" /> &lt;!&ndash; Adjust max length as needed &ndash;&gt;-->
+
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_below="@+id/tv1"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
             android:layout_marginTop="32dp"
-            android:hint="Mobile Number"
-            android:inputType="number"
-            android:background="@drawable/customedittext"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
-            android:textColor="@color/black"
-            android:maxLength="10" /> <!-- Adjust max length as needed -->
+            android:layout_gravity="center_horizontal">
 
-        <TextView
+            <EditText
+                android:id="@+id/email"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:hint="Email"
+                android:textColorHint="@color/secondary_text_color"
+                android:background="@drawable/customedittext"
+                android:inputType="textEmailAddress"
+                android:layout_marginTop="16dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:textColor="@color/primary_text_color"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="16dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                >
+
+                <EditText
+                    android:id="@+id/password"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:hint="Password"
+                    android:textColorHint="@color/secondary_text_color"
+                    android:background="@drawable/customedittext"
+                    android:inputType="textPassword"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:textColor="@color/primary_text_color"/>
+
+                <ImageView
+                    android:id="@+id/iv_show_password"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:padding="12dp"
+                    android:src="@drawable/ic_eye"
+                    android:layout_alignParentRight="true"/>
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_forgot_pswrd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Forgot Password?"
+                android:textSize="16sp"
+                android:layout_marginLeft="235dp"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/colorAccent"
+                android:clickable="true"
+                android:onClick="forgotPassword"/>
+
+
+            <Button
+                android:id="@+id/btn_sign_in"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/btn_marginStartEnd"
+                android:layout_marginEnd="@dimen/btn_marginStartEnd"
+                android:layout_marginTop="@dimen/intro_screen_sign_in_btn_marginTop"
+                android:background="@drawable/shape_button_rounded"
+                android:foreground="?attr/selectableItemBackground"
+                android:gravity="center"
+                android:paddingTop="@dimen/btn_paddingTopBottom"
+                android:paddingBottom="@dimen/btn_paddingTopBottom"
+                android:text="@string/sign_in"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/btn_text_size"/>
+
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="or"
-            android:textSize="15sp"
-            android:layout_marginTop="7dp"
-            android:textColor="@color/black"/>
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center_horizontal">
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/signInBtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-            android:layout_marginTop="10dp"
-            android:backgroundTint="@color/teal_700"
-            android:text="Continue with Google"
-            android:textColor="@color/white"
-            android:textAllCaps="false"
-            app:icon="@drawable/google"
-            app:iconSize="20dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Don't have an account?"
+                android:textSize="16sp"
+                android:textColor="@color/primary_text_color"/>
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/signInBtn1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-            android:layout_marginTop="10dp"
-            android:backgroundTint="@color/teal_700"
-            android:text="Continue with Github"
-            app:icon="@drawable/github2"
-            android:textColor="@color/white"
-            android:textAllCaps="false"
-            app:iconSize="20dp"/>
+            <TextView
+                android:id="@+id/tv_sign_up"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" Sign Up"
+                android:textSize="18sp"
+                android:textColor="@color/colorAccent"
+                android:clickable="true"/>
+        </LinearLayout>
 
-        <Button
-            android:id="@+id/btnSignIn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tv"
-            android:text="Continue"
-            android:background="@drawable/custombutton"
-            android:textSize="16sp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="70dp"
-            android:layout_marginBottom="5dp"
-            />
+<!--        <TextView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="or"-->
+<!--            android:textSize="16sp"-->
+<!--            android:textColor="@color/primary_text_color"-->
+<!--            android:gravity="center"/>-->
 
     </LinearLayout>
 
-</RelativeLayout>
+</LinearLayout>

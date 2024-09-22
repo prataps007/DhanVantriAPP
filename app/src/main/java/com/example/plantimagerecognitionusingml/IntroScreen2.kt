@@ -5,6 +5,7 @@ import android.graphics.Typeface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import org.w3c.dom.Text
 
@@ -12,6 +13,12 @@ class IntroScreen2 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_intro_screen2)
+
+        val skip1: Button = findViewById(R.id.skip1)
+        skip1.setOnClickListener{
+            startActivity(Intent(this,UserAuthorisation::class.java))
+        }
+
 
         val btnNext2: Button = findViewById(R.id.btnNext2)
 
@@ -22,8 +29,8 @@ class IntroScreen2 : AppCompatActivity() {
             //startActivity(Intent(this@MainActivity,SecondActivity::class.java))
         }
 
-        val typeFace: Typeface = Typeface.createFromAsset(assets,"grus.bold.ttf")
-        val tv: TextView=findViewById(R.id.tv)
-        tv.typeface=typeFace
+//        val typeFace: Typeface = Typeface.createFromAsset(assets,"grus.bold.ttf")
+//        val tv: TextView=findViewById(R.id.tv)
+//        tv.typeface=typeFace
     }
 }

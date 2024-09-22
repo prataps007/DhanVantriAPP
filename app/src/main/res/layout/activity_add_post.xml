@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/main"
+    android:padding="16dp">
+
+
+    <!-- Input field for post content -->
+    <EditText
+        android:id="@+id/et_post_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Write your post here"
+        android:inputType="textMultiLine"
+        android:gravity="top"
+        android:lines="5"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Button to submit the post -->
+    <Button
+        android:id="@+id/btn_submit_post"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Post"
+        android:layout_below="@id/et_post_content"
+        android:layout_alignParentEnd="true" />
+
+</RelativeLayout>

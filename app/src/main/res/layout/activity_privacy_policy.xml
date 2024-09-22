@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_privacy_policy"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorAccent"
+            app:popupTheme="@style/AppTheme.AppBarOverlay"/>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:layout_marginTop="20dp">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="18dp">
+
+            <TextView
+                android:id="@+id/privacy_policy_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Your privacy policy text goes here. Make sure to provide detailed information about how user data is collected, used, and protected. If your privacy policy is very long, the ScrollView will allow users to scroll through it."
+                android:textAppearance="?android:attr/textAppearanceMedium"/>
+        </ScrollView>
+
+        <Button
+            android:id="@+id/accept_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Accept"
+            android:background="@drawable/custom_material_button"
+            android:foreground="?attr/selectableItemBackground"
+            android:textColor="@color/white"
+            android:layout_marginTop="20dp"
+            android:onClick="onAcceptClick"/>
+
+    </LinearLayout>
+
+</LinearLayout>

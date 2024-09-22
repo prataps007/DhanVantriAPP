@@ -11,9 +11,9 @@
     <string name="login_failed">"Login failed"</string>
 
     <string name="sign_up_description_text">Enter your name,email id and password, to register with us</string>
-    <string name="name">Name</string>
-    <string name="password">Password</string>
-    <string name="email">Email</string>
+    <string name="name">Enter name</string>
+    <string name="password">Enter password</string>
+    <string name="email">Enter email</string>
     <string name="sign_up">SIGN UP</string>
 
     <string name="sign_in">SIGN IN</string>
@@ -23,4 +23,39 @@
     <string name="discoverIv">discover</string>
     <string name="scanIv">scan</string>
 
+    <string name="image_contentDescription">image</string>
+    <string name="welcome_to_dhanvantri">Welcome to DhanVantri</string>
+    <string name="intro_text_description">Identify your plants by uploading or scanning images. Access comprehensive data and educational resources with a user-friendly interface.
+</string>
+    <string name="identify_your_plants">Identify Your Plants</string>
+    <string name="know_your_plants">Know everything about your Plants!</string>
+
+    <string name="btn_continue">Continue</string>
+
+    <string name="lets_get_started_text">Let\'s Get Started</string>
+    <string name="please_click_back_again_to_exit">Please click back again to exit</string>
+    <string name="please_wait">please wait</string>
+    <string name="update">Update</string>
+    <string name="mobile">Mobile</string>
+    <string name="my_profile_title">My Profile</string>
+    <string name="instagram">Instagram</string>
+    <string name="facebook">Facebook</string>
+    <string name="twitter">Twitter</string>
+    <string name="website">Website</string>
+    <string name="about_us_title">Meet the Team</string>
+    <string name="contact_us_title">Contact Us</string>
+    <string name="terms_of_use">Terms of Use</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="rate_us">Rate Us</string>
+    <string name="allow_access">Allow Access</string>
+    <string name="explore">Explore</string>
+    <string name="plant_image">Plant Image</string>
+    <string name="bookmark_button_description">bookmark</string>
+    <string name="back_button_description">back button</string>
+    <string name="plant_image_description">Plant Image</string>
+    <string name="user_name">User Name</string>
+    <string name="Post">This is a community post content...</string>
+    <string name="community">Community</string>
+    <string name="communityPage">Community</string>
+    <string name="send">Send</string>
 </resources>

@@ -42,33 +42,41 @@
             android:textColor="@color/black"
             android:layout_marginTop="15dp"
             />
-        
+
+<!--        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
         <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp">
-            
+
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/otp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="number"
-                android:hint="  Enter OTP"
-                android:textColor="@color/black"
-                android:background="@drawable/customedittext"
+                android:layout_height="50dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                />
+                android:background="@drawable/customedittext"
+                android:hint="  Enter OTP"
+                android:inputType="number"
+                android:textColor="@color/black" />
         </com.google.android.material.textfield.TextInputLayout>
-        
+
         <Button
             android:id="@+id/btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:text="Continue"/>
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/btn_marginStartEnd"
+            android:layout_marginEnd="@dimen/btn_marginStartEnd"
+            android:layout_marginTop="@dimen/intro_screen_sign_in_btn_marginTop"
+            android:background="@drawable/shape_button_rounded"
+            android:foreground="?attr/selectableItemBackground"
+            android:gravity="center"
+            android:paddingTop="@dimen/btn_paddingTopBottom"
+            android:paddingBottom="@dimen/btn_paddingTopBottom"
+            android:text="@string/btn_continue"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/btn_text_size"/>
     </LinearLayout>
 </RelativeLayout>

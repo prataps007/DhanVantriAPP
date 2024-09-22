@@ -1,74 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".IntroScreen2"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
     android:background="@color/white">
 
-    <RelativeLayout
-        android:id="@+id/rl1"
+
+    <Button
+        android:id="@+id/skip1"
+        android:layout_width="65dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="140dp"
+        android:background="@drawable/skip_button_rounded"
+        android:text="Skip"
+        android:textColor="@color/black"/>
+
+<!--    <ImageView-->
+<!--        android:id="@+id/skip1"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:layout_marginLeft="140dp"-->
+<!--        android:src="@drawable/skip"-->
+<!--        android:clickable="true"-->
+<!--        android:onClick="onSkipClick"-->
+<!--        />-->
+
+
+<!--    <TextView-->
+<!--        android:id="@+id/tv_app_name"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="@dimen/intro_screen_title_text_marginTop"-->
+<!--        android:text="@string/app_name"-->
+<!--        android:textColor="@color/teal_700"-->
+<!--        android:textSize="@dimen/intro_screen_title_text_size"-->
+<!--        android:textStyle="bold"/>-->
+
+    <ImageView
+        android:layout_width="350dp"
+        android:layout_height="250dp"
+        android:layout_marginTop="@dimen/intro_screen_image_marginTop"
+        android:contentDescription="@string/image_contentDescription"
+        android:src="@drawable/winebottle"/>
+
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/lets_get_started_text_marginTop"
+        android:text="@string/lets_get_started_text"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="@dimen/lets_get_started_text_size"/>
+
+    <TextView
+        android:id="@+id/tv2"
         android:layout_width="match_parent"
-        android:layout_height="280dp"
-        android:layout_marginTop="150dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp">
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/intro_text_marginStartEnd"
+        android:layout_marginTop="@dimen/intro_text_marginTop"
+        android:layout_marginEnd="@dimen/intro_text_marginStartEnd"
+        android:gravity="center"
+        android:lineSpacingExtra="@dimen/intro_text_line_spacing_extra"
+        android:text="@string/intro_text_description"
+        android:textColor="@color/black"
+        android:textSize="@dimen/intro_text_size"/>
 
-        <View
-            android:id="@+id/download_fr"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/winebottle" />
-
-
-    </RelativeLayout>
-
-    <RelativeLayout
+    <Button
+        android:id="@+id/btnNext2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="60dp"
-        android:layout_below="@+id/rl1">
-
-        <TextView
-            android:id="@+id/tv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Welcome to DhanVantri"
-            android:textAlignment="center"
-            android:textStyle="bold"
-            android:textSize="25sp"
-            android:textColor="@color/black"
-            />
-
-        <TextView
-            android:id="@+id/tv2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Enjoy your Life with Plants"
-            android:layout_marginLeft="110dp"
-            android:layout_below="@+id/tv"
-            android:layout_alignParentLeft="true"
-
-            android:textSize="15sp"
-            android:layout_marginTop="20dp"
-            android:textColor="@color/black"
-            />
-
-        <Button
-            android:id="@+id/btnNext2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tv"
-            android:layout_marginTop="160dp"
-            android:layout_marginBottom="10dp"
-            android:background="@drawable/custombutton"
-            android:text="Next"
-            android:textSize="16sp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"/>
-
-    </RelativeLayout>
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="@dimen/btn_marginStartEnd"
+        android:layout_marginEnd="@dimen/btn_marginStartEnd"
+        android:layout_marginTop="@dimen/btn_marginTop"
+        android:background="@drawable/shape_button_rounded"
+        android:foreground="?attr/selectableItemBackground"
+        android:gravity="center"
+        android:paddingTop="@dimen/btn_paddingTopBottom"
+        android:paddingBottom="@dimen/btn_paddingTopBottom"
+        android:text="Next"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/btn_text_size"/>
 
 
-</RelativeLayout>
+</LinearLayout>

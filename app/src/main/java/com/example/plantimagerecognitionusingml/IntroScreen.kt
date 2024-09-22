@@ -16,20 +16,39 @@ class IntroScreen : AppCompatActivity() {
         setContentView(R.layout.activity_intro_screen)
 
 
-        val iHome = Intent(this@IntroScreen, IntroScreen2::class.java
-        ) // move from Intro screen to IntroScreen2
-
-
-        Handler().postDelayed({
-            startActivity(iHome)
-            finish()
-        }, 3000)
-
         window.setFlags(
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
             WindowManager.LayoutParams.FLAG_FULLSCREEN
         )
 
-        setContentView(R.layout.activity_intro_screen)
+        Handler().postDelayed({
+
+            val currentUserID = getCurrentUserId()
+
+            if(currentUserID.isNotEmpty()){
+                startActivity(Intent(this,HomePage::class.java))
+            }else{
+
+                startActivity(Intent(this,IntroScreen2::class.java))
+
+            }
+
+            // Start the main activity after the specified duration
+            finish()
+        }, 2500.toLong())
+
+    }
+
+    fun getCurrentUserId(): String{
+
+        val currentUser = FirebaseAuth.getInstance().currentUser
+        var currentUserID = ""
+        if(currentUser!=null){
+            currentUserID = currentUser.uid
+        }
+
+        return currentUserID
+
+        //  return FirebaseAuth.getInstance().currentUser!!.uid
     }
 }

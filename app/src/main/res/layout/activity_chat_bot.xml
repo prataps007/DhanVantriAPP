@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/chatbot_bg"
+    tools:context=".ChatAdapter">
+
+
+    <!-- Image View at the top -->
+
+    <ImageView
+        android:id="@+id/header_image"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:src="@drawable/custom_rectangle" />
+
+    <ImageView
+        android:id="@+id/back_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/circle_white_back_btn"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="20dp"/>
+
+    <TextView
+        android:id="@+id/tv_chatbot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DhanVantri ChatBot"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="100dp"
+        android:textColor="@color/white"/>
+
+
+    <!-- Chatbot message container -->
+
+    <!-- Chatbot message container -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/chat_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/message_input_layout"
+        android:layout_below="@id/header_image"
+        android:layout_marginBottom="8dp" />
+
+
+    <!-- Message input layout -->
+    <LinearLayout
+        android:id="@+id/message_input_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:background="@color/white"
+        android:padding="8dp">
+
+        <!--  Attach a file-->
+<!--        <ImageView-->
+<!--            android:id="@+id/iv_attach_file"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:src="@drawable/ic_attach"-->
+<!--            android:onClick="true"-->
+<!--            tools:ignore="OnClick"-->
+<!--            android:layout_marginTop="13dp"/>-->
+
+
+        <!-- Message input field -->
+<!--        <EditText-->
+<!--            android:id="@+id/message_input"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="1"-->
+<!--            android:hint="Type here..."-->
+<!--            android:maxLines="5"-->
+<!--            android:layout_marginLeft="4dp"-->
+<!--            android:layout_marginRight="4dp"-->
+<!--            android:inputType="textMultiLine"/>-->
+
+        <EditText
+            android:id="@+id/message_input"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Type here..."
+            android:maxLines="5"
+            android:inputType="textMultiLine"/>
+
+        <!-- Send button -->
+<!--        <ImageView-->
+<!--            android:id="@+id/send_button"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:src="@drawable/ic_send"-->
+<!--            android:onClick="true"-->
+<!--            tools:ignore="OnClick"-->
+<!--            android:layout_marginTop="12dp"/>-->
+
+        <Button
+            android:id="@+id/send_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="true"
+            tools:ignore="OnClick"
+            android:text="@string/send" />
+    </LinearLayout>
+
+</RelativeLayout>

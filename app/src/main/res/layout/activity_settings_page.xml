@@ -4,6 +4,411 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="16dp"
     tools:context=".SettingsPage">
 
+
+    <!-- Profile Picture -->
+    <ImageView
+        android:id="@+id/back_btn"
+        android:layout_width="51dp"
+        android:layout_height="43dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/circle_back_button" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile_image"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/ic_user_place_holder"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        app:civ_border_width="2dp"
+        app:civ_border_color="@android:color/black" />
+
+    <!-- User Name -->
+    <TextView
+        android:id="@+id/user_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="User Name"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_below="@id/profile_image"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp" />
+
+    <!-- Email -->
+    <TextView
+        android:id="@+id/user_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="user@example.com"
+        android:textSize="16sp"
+        android:layout_below="@id/user_name"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp" />
+
+    <!-- Edit Profile Button -->
+    <Button
+        android:id="@+id/edit_profile"
+        android:layout_width="wrap_content"
+        android:layout_height="22dp"
+        android:text="Edit Profile"
+        android:background="@drawable/shape_button_rounded"
+        android:foreground="?attr/selectableItemBackground"
+        android:layout_below="@id/user_email"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:textColor="@android:color/white"
+        android:textSize="12sp"/>
+
+    <!-- Divider -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/edit_profile"
+        android:layout_marginTop="20dp"
+        android:background="@android:color/darker_gray" />
+
+    <!-- General Options Title -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="General"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_below="@id/edit_profile"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="10dp" />
+
+    <!-- Notifications Option -->
+    <LinearLayout
+        android:id="@+id/notifications_option"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edit_profile"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:layout_marginTop="60dp">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/bell"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="10dp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Notifications"
+            android:textSize="16sp" />
+
+        <Switch
+            android:id="@+id/switch_notifications"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:ignore="UseSwitchCompatOrMaterialXml" />
+    </LinearLayout>
+
+    <!-- Dark Mode Option -->
+    <LinearLayout
+        android:id="@+id/dark_mode_option"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/notifications_option"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_dark_mode"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="10dp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Dark Mode"
+            android:textSize="16sp" />
+
+        <Switch
+            android:id="@+id/switch_dark_mode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:ignore="UseSwitchCompatOrMaterialXml" />
+    </LinearLayout>
+
+    <!-- Allow Access Option -->
+    <LinearLayout
+        android:id="@+id/allow_access_option"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/dark_mode_option"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_allow_access"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="10dp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Allow Access"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_arrow_right"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="10dp" />
+
+    </LinearLayout>
+
+    <!-- Share App Options -->
+    <LinearLayout
+        android:id="@+id/share_app"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/allow_access_option"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_share_app"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="10dp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Share App"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_arrow_right"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="10dp" />
+
+    </LinearLayout>
+
+    <!-- Divider -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/share_app"
+        android:layout_marginTop="20dp"
+        android:background="@android:color/darker_gray" />
+
+    <!-- Support Options Title -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Support"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_below="@id/share_app"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="10dp" />
+
+    <!-- Rate Us Option -->
+    <LinearLayout
+        android:id="@+id/rate_us"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:layout_below="@id/share_app"
+        android:layout_marginTop="60dp">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_rate_us"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="10dp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Rate Us"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_arrow_right"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="10dp" />
+
+    </LinearLayout>
+
+    <!-- Privacy Policy Option -->
+    <LinearLayout
+        android:id="@+id/privacy_policy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:layout_below="@id/rate_us">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/privacy_policy_icon"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="10dp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Privacy Policy"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_arrow_right"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="10dp" />
+    </LinearLayout>
+
+    <!-- Terms of Use Option -->
+    <LinearLayout
+        android:id="@+id/terms_of_use"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:layout_below="@id/privacy_policy">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_terms_of_use"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="10dp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Terms of Use"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_arrow_right"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="10dp" />
+    </LinearLayout>
+
+    <!-- Contact Us Option -->
+    <LinearLayout
+        android:id="@+id/contact_us"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:layout_below="@id/terms_of_use">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_contact_us"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="10dp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Contact Us"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_arrow_right"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="10dp" />
+    </LinearLayout>
+
+    <!-- About Us Option -->
+    <LinearLayout
+        android:id="@+id/about_us"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:layout_below="@id/contact_us">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_about_us"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="10dp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="About Us"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_arrow_right"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="10dp" />
+    </LinearLayout>
+
+
+    <!-- Logout Option -->
+    <LinearLayout
+        android:id="@+id/logout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:layout_below="@id/about_us">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/baseline_logout_24"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="10dp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Log Out"
+            android:textSize="16sp"
+            android:textColor="@android:color/holo_red_dark" />
+
+    </LinearLayout>
 </RelativeLayout>
