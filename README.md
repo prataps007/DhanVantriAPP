@@ -22,6 +22,8 @@ This Android application is developed in **Kotlin** and utilizes machine learnin
 - **JSON Data**: Plant information is stored and retrieved using JSON format.
 - **Gemini API**: Used for fetching plant-related information.
 - **Firebase & Firestore**: Used for backend services and storing user data.
+- **Glide**: Used for loading and caching images efficiently.
+- *Room**: Used for plants database storage.
 
 ## Usage
 
