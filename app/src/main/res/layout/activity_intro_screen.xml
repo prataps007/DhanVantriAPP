@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/hanging2"
-    tools:context=".IntroScreen">
+    tools:context=".activities.intro.IntroScreen">
 
 
 

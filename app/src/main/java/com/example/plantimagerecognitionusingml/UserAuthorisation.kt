@@ -9,10 +9,10 @@ import android.util.Log
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.app.AppCompatActivity
+import com.example.plantimagerecognitionusingml.activities.BaseActivity
+import com.example.plantimagerecognitionusingml.activities.HomePage
+import com.example.plantimagerecognitionusingml.activities.SignUpActivity
 import com.example.plantimagerecognitionusingml.databinding.ActivityUserAuthorisationBinding
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
 
 class UserAuthorisation : BaseActivity() {
@@ -33,7 +33,7 @@ class UserAuthorisation : BaseActivity() {
         // if already logged in then no need to to open sign in page --> directly go to Home Page
 
         if(auth.currentUser!=null){   //===
-            startActivity(Intent(this,HomePage::class.java))  // changed from mainActivity to homePage activity
+            startActivity(Intent(this, HomePage::class.java))  // changed from mainActivity to homePage activity
             finish()
         }
 
@@ -47,7 +47,7 @@ class UserAuthorisation : BaseActivity() {
         // sign up
        val tv_sign_up : TextView = findViewById(R.id.tv_sign_up)
         tv_sign_up.setOnClickListener{
-            startActivity(Intent(this,SignUpActivity::class.java))
+            startActivity(Intent(this, SignUpActivity::class.java))
         }
 
         val passwordEditText: EditText = findViewById(R.id.password)
@@ -108,7 +108,7 @@ class UserAuthorisation : BaseActivity() {
 
     fun signInSuccess(){
         hideProgressDialog()
-        startActivity(Intent(this,HomePage::class.java))
+        startActivity(Intent(this, HomePage::class.java))
         finish()
     }
 
